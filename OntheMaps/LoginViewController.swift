@@ -65,8 +65,26 @@ class LoginViewController: UIViewController {
             }
             let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            
+            do {
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
+                print("parsedResult: \(parsedResult)")
+                
+            }
+            catch {
+                print("error")
+            }
+            
+            let nextVCController = self.storyboard!.instantiateInitialViewController("rootNavigationViewController") as! UINavigationController
+            self.presentViewController(nextVCController, animated: true, completion: nil)
+            
+            
+
+            
         }
+        
         task.resume()
+        
     
     }
     
