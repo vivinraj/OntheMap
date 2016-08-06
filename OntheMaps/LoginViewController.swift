@@ -75,11 +75,8 @@ class LoginViewController: UIViewController {
                 print("error")
             }
             
-            let nextVCController = self.storyboard!.instantiateInitialViewController("rootNavigationViewController") as! UINavigationController
-            self.presentViewController(nextVCController, animated: true, completion: nil)
-            
-            
-
+      //      let nextVCController = self.storyboard!.instantiateInitialViewController("rootNavigationViewController") as! UINavigationController
+        //    self.presentViewController(nextVCController, animated: true, completion: nil)
             
         }
         
