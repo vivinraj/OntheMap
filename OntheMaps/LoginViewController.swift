@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var Password: UITextField!
     
     override func viewWillAppear(animated: Bool) {
-      //  background.UIColor = "blue"
+        self.view.backgroundColor = UIColor.orangeColor()
+        //imgViewBackGround setImage:[UIImage imageNamed:imageName]
+        
         
     }
 
@@ -75,11 +77,14 @@ class LoginViewController: UIViewController {
                 print("error")
             }
             
-           // var controller: ViewController
-            nextVCController = self.storyboard!.instantiateInitialViewController("rootNavigationViewController") as! UINavigationController
-          self.presentViewController(nextVCController, animated: true, completion: nil)
+          /*  var nextVCController: UIViewController
+            nextVCController = self.storyboard!.instantiateInitialViewController("mapTabViewController") as! mapTabViewController
             
-        }
+            
+         //   nextVCController1 = self.storyboard?.instantiateInitialViewController("mapTabViewController") as! UITabBarController
+            
+          self.presentViewController(nextVCController, animated: true, completion: nil) */
+            }
         
         task.resume()
         

@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="vmb-Pl-5Ah">
             <objects>
-                <viewController id="NcS-ko-8CF" customClass="LoginViewController" customModule="OntheMaps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NcS-ko-8CF" customClass="LoginViewController" customModule="OntheMaps" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cA9-S4-GPT"/>
                         <viewControllerLayoutGuide type="bottom" id="ZOY-KN-avW"/>
@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4c-0b-Ija">
-                                <rect key="frame" x="199.5" y="205" width="200" height="30"/>
+                                <rect key="frame" x="200" y="222" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBB-VD-gZi">
-                                <rect key="frame" x="199.5" y="285" width="200" height="30"/>
+                                <rect key="frame" x="200" y="260" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="GoC-k7-TcB"/>
                                     <constraint firstAttribute="height" constant="30" id="YhG-3f-mEV"/>
@@ -31,8 +31,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Udacity" translatesAutoresizingMaskIntoConstraints="NO" id="1fy-qZ-jdf">
+                                <rect key="frame" x="238" y="78" width="125" height="85"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-TP-G1Z">
+                                <rect key="frame" x="220" y="171" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-oY-NBV">
-                                <rect key="frame" x="199.5" y="368" width="200" height="30"/>
+                                <rect key="frame" x="200" y="326" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.37968204018674545" blue="0.10424710223523559" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
                                     <action selector="loginButton:" destination="NcS-ko-8CF" eventType="touchUpInside" id="njz-Cn-OPx"/>
@@ -42,15 +52,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xYq-oY-NBV" firstAttribute="width" secondItem="GBB-VD-gZi" secondAttribute="width" id="HWT-Ih-UbC"/>
+                            <constraint firstItem="1fy-qZ-jdf" firstAttribute="centerX" secondItem="z4c-0b-Ija" secondAttribute="centerX" constant="1" id="IkO-Wf-Zq2"/>
+                            <constraint firstItem="Fd8-TP-G1Z" firstAttribute="centerX" secondItem="z4c-0b-Ija" secondAttribute="centerX" constant="-2" id="RCC-uB-EVw"/>
                             <constraint firstItem="z4c-0b-Ija" firstAttribute="width" secondItem="GBB-VD-gZi" secondAttribute="width" id="RKc-O2-f0f"/>
-                            <constraint firstItem="GBB-VD-gZi" firstAttribute="centerY" secondItem="Icx-kI-dbE" secondAttribute="centerY" id="UVZ-mk-Hrn"/>
+                            <constraint firstItem="GBB-VD-gZi" firstAttribute="centerY" secondItem="Icx-kI-dbE" secondAttribute="centerY" constant="-25" id="UVZ-mk-Hrn"/>
+                            <constraint firstItem="z4c-0b-Ija" firstAttribute="top" secondItem="1fy-qZ-jdf" secondAttribute="bottom" constant="59" id="aGh-Eo-OaJ"/>
                             <constraint firstItem="GBB-VD-gZi" firstAttribute="centerX" secondItem="Icx-kI-dbE" secondAttribute="centerX" id="cGq-d5-Veh"/>
                             <constraint firstItem="z4c-0b-Ija" firstAttribute="centerX" secondItem="GBB-VD-gZi" secondAttribute="centerX" id="ezP-bi-f4X"/>
-                            <constraint firstItem="GBB-VD-gZi" firstAttribute="top" secondItem="z4c-0b-Ija" secondAttribute="bottom" constant="50" id="fHY-bs-IkJ"/>
+                            <constraint firstItem="GBB-VD-gZi" firstAttribute="top" secondItem="z4c-0b-Ija" secondAttribute="bottom" constant="8" id="fHY-bs-IkJ"/>
+                            <constraint firstItem="z4c-0b-Ija" firstAttribute="top" secondItem="Fd8-TP-G1Z" secondAttribute="bottom" constant="30" id="pPc-Lf-AiN"/>
                             <constraint firstItem="xYq-oY-NBV" firstAttribute="centerX" secondItem="GBB-VD-gZi" secondAttribute="centerX" id="qOy-KG-off"/>
                             <constraint firstItem="z4c-0b-Ija" firstAttribute="height" secondItem="GBB-VD-gZi" secondAttribute="height" id="sZd-rT-Ewz"/>
                             <constraint firstItem="xYq-oY-NBV" firstAttribute="height" secondItem="GBB-VD-gZi" secondAttribute="height" id="ube-jt-ssY"/>
-                            <constraint firstItem="xYq-oY-NBV" firstAttribute="top" secondItem="GBB-VD-gZi" secondAttribute="bottom" constant="53" id="vFv-B5-AvH"/>
+                            <constraint firstItem="xYq-oY-NBV" firstAttribute="top" secondItem="GBB-VD-gZi" secondAttribute="bottom" constant="36" id="vFv-B5-AvH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -84,6 +98,7 @@
                                 <rect key="frame" x="0.0" y="19" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="On The Map" id="l1q-Gs-bzs">
+                                        <barButtonItem key="leftBarButtonItem" image="pin" id="Yi7-sS-1Q3"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="QgU-aq-nGw"/>
                                     </navigationItem>
                                 </items>
@@ -116,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="19" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="On The Map" id="QTJ-Hm-nMJ">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="w1B-6V-0l6"/>
+                                        <barButtonItem key="leftBarButtonItem" image="pin" id="w1B-6V-0l6"/>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="EFe-ky-vaW"/>
                                     </navigationItem>
                                 </items>
@@ -133,7 +148,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fnY-wG-Dhy">
             <objects>
-                <tabBarController id="WWy-TY-oRh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mapTabViewController" id="WWy-TY-oRh" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pbh-5w-gcm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -149,4 +164,8 @@
             <point key="canvasLocation" x="-755" y="-149"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Udacity" width="256" height="256"/>
+        <image name="pin" width="32" height="32"/>
+    </resources>
 </document>

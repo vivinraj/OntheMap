@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372A1A391D571D3A000FB0E5 /* maptableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A1A381D571D3A000FB0E5 /* maptableViewController.swift */; };
 		3747F0581D4E65F900502288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3747F0571D4E65F900502288 /* AppDelegate.swift */; };
 		3747F05A1D4E65F900502288 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3747F0591D4E65F900502288 /* LoginViewController.swift */; };
 		3747F05D1D4E65F900502288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3747F05B1D4E65F900502288 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		372A1A381D571D3A000FB0E5 /* maptableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = maptableViewController.swift; sourceTree = "<group>"; };
 		3747F0541D4E65F900502288 /* OntheMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OntheMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3747F0571D4E65F900502288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3747F0591D4E65F900502288 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = OntheMaps/LoginViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				3747F0591D4E65F900502288 /* LoginViewController.swift */,
 				37A6F1721D4F6F2100022DCA /* MapViewController.swift */,
+				372A1A381D571D3A000FB0E5 /* maptableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372A1A391D571D3A000FB0E5 /* maptableViewController.swift in Sources */,
 				3747F05A1D4E65F900502288 /* LoginViewController.swift in Sources */,
 				3747F0581D4E65F900502288 /* AppDelegate.swift in Sources */,
 				37A6F1711D4F56C800022DCA /* Constants.swift in Sources */,
