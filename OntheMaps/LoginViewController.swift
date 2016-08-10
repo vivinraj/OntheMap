@@ -60,12 +60,27 @@ class LoginViewController: UIViewController {
         
         print("Request: \(request)")
         
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil { // Handle error…
+       // let session = NSURLSession.sharedSession()
+        let task = appDelegate.sharedSession.dataTaskWithRequest(request) { (data, response, error) in
+            
+          /*  func displayError(error: String){
+                print(error)
+                performUIUpdatesOnMain {
+                    self.setUIEnabled(true)
+                }
+            } */
+            
+            guard(error == nil) else {
+                print(error)
                 return
             }
-            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             
             do {
@@ -77,14 +92,15 @@ class LoginViewController: UIViewController {
                 print("error")
             }
             
-          /*  var nextVCController: UIViewController
-            nextVCController = self.storyboard!.instantiateInitialViewController("mapTabViewController") as! mapTabViewController
+        }
+          /// var nextVCController: UIViewController
+        /*   let nextVCController = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UITabBarController
             
             
          //   nextVCController1 = self.storyboard?.instantiateInitialViewController("mapTabViewController") as! UITabBarController
             
-          self.presentViewController(nextVCController, animated: true, completion: nil) */
-            }
+          self.presentViewController(nextVCController, animated: true, completion: nil)
+            } */
         
         task.resume()
         

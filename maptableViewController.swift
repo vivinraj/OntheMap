@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
+class maptableViewController: UITableViewController {
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
+  /*  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    } */
+}

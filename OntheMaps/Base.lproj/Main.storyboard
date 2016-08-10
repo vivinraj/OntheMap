@@ -132,7 +132,7 @@
                                 <items>
                                     <navigationItem title="On The Map" id="QTJ-Hm-nMJ">
                                         <barButtonItem key="leftBarButtonItem" image="pin" id="w1B-6V-0l6"/>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="EFe-ky-vaW"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="EFe-ky-vaW"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
