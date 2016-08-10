@@ -60,8 +60,8 @@ class LoginViewController: UIViewController {
         
         print("Request: \(request)")
         
-       // let session = NSURLSession.sharedSession()
-        let task = appDelegate.sharedSession.dataTaskWithRequest(request) { (data, response, error) in
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
           /*  func displayError(error: String){
                 print(error)
@@ -80,17 +80,40 @@ class LoginViewController: UIViewController {
             }
             
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            print("New Data: \(newData)")
             
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             
+            let parsedResult: AnyObject
+            
             do {
                 let parsedResult = try! NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
-                print("parsedResult: \(parsedResult)")
+                //print("parsedResult: \(parsedResult)")
                 
             }
             catch {
                 print("error")
             }
+            
+            print("parsedResult: \(parsedResult)")
+            
+            guard let account = parsedResult["account"] as? NSDictionary else {
+                return
+            }
+            print("Account: \(account)")
+            
+            self.appDelegate.sessionID = account["key"] as! String
+            
+            
+            
+           // print("Unique Key : \(uniqueKey)")
+            
+            
+            let nc = self.storyboard!.instantiateViewControllerWithIdentifier("rootNavigationController") as! UINavigationController
+            self.presentViewController(nc, animated: true, completion: nil)
+ 
+          //  let sessionid = parsedResult[session]
+           // print("sessionid = \(sessionid)")
             
         }
           /// var nextVCController: UIViewController
@@ -106,6 +129,8 @@ class LoginViewController: UIViewController {
         
     
     }
+    
+    
     
     @IBAction func loginButton(sender: AnyObject) {
     

@@ -15,10 +15,26 @@ struct Constants {
     static let ParseBasicURL = "https://api.parse.com/1/classes/StudentLocation"
     static let udacityBaseURL = "https://udacity.com/api"
     
+    struct JSONParameterKeys {
+        
+    }
     
+    struct JSONParameterValues {
+        
+        
+    }
+    struct JSONResponseKeys {
+        static let RequestToken = "RequestToken"
+        static let session = "session"
+    }
+    
+   /* struct JSONResponseValues {
+       
+        
+    } */
   
     // MARK: Flickr Parameter Keys
-    struct JSONParameterKeys {
+  /*  struct JSONParameterKeys {
     static let objectID = "objectID"
     static let uniqueKey = "uniqueKey"
     static let firstName = "firstname"
@@ -70,8 +86,12 @@ struct Constants {
      static let KeyboardDidHide: Selector = "keyboardDidHide:"
      }
      */
+ */
+    
     
     
     
     }
+
+
 
