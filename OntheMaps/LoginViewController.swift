@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var appDelegate: AppDelegate!
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var keyboardOnScreen = false
     
     @IBOutlet weak var Username: UITextField!
@@ -63,12 +63,12 @@ class LoginViewController: UIViewController {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
-           func displayError(error: String){
+        /*   func displayError(error: String){
                 print(error)
                 performUIUpdatesOnMain {
                     self.setUIEnabled(true)
                 }
-            }
+            } */
             
             guard(error == nil) else {
                 print(error)
@@ -100,27 +100,27 @@ class LoginViewController: UIViewController {
             
             print("Parsed result error: \(parsedResult["error"])")
             
-            guard parsedResult["error"] == nil else {
+            
+            //TODO: Case for invalid login credentials
+          /*  if (parsedResult["error"]) != nil {
                 print("Invalid Credentials")
                 return
-            }
+            } */
             
             guard let account = parsedResult["session"] as? NSDictionary else {
                 return
             }
             print("Account: \(account)")
             
-            let accountSessionID = account["id"] as! String
+           // let accountSessionID =
         
-            print("Session ID: \(accountSessionID)")
+          //  print("Session ID: \(accountSessionID)")
             
-            print(self.appDelegate.sessionID)
-            
-            print(self.appDelegate.sessionID)
-           
+            self.appDelegate.sessionID = account["id"] as! String
+            print("SessionID: \(self.appDelegate.sessionID)")
             
             
-            let nc = self.storyboard!.instantiateViewControllerWithIdentifier("rootNavigationController") as! UINavigationController
+            let nc = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UITabBarController
             self.presentViewController(nc, animated: true, completion: nil)
             
         }
