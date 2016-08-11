@@ -44,10 +44,10 @@ func getStudentLocation() {
             return
         }
         
-        self.studentDictionary = parsedResult["results"] as? [String: AnyObject]
+        let studentDictionary = parsedResult["results"] as? [String: AnyObject]
         //return studentLocationDictionary
         //return studentLocationDictionary
-        print("STudent Dictonary: \(self.studentDictionary)")
+        print("STudent Dictonary: \(studentDictionary)")
     }
     
     task.resume()
