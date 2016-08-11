@@ -18,10 +18,13 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prefersStatusBarHidden()
         
      //   locations = hardCodedLocationsData()
     
     
     }
 
+    @IBAction func yourLocation(sender: AnyObject) {
+    }
 }
