@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
 
     
     func loginPressed() {
-        
         let username: String? = Username.text
+        
         
         let password = Password.text
         
@@ -63,12 +63,12 @@ class LoginViewController: UIViewController {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
-          /*  func displayError(error: String){
+           func displayError(error: String){
                 print(error)
                 performUIUpdatesOnMain {
                     self.setUIEnabled(true)
                 }
-            } */
+            }
             
             guard(error == nil) else {
                 print(error)
@@ -84,49 +84,48 @@ class LoginViewController: UIViewController {
             
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             
-            let parsedResult: AnyObject
+            let parsedResult: AnyObject!
             
             do {
-                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
+                parsedResult = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
                 //print("parsedResult: \(parsedResult)")
                 
             }
             catch {
                 print("error")
+                return
             }
             
             print("parsedResult: \(parsedResult)")
             
-            guard let account = parsedResult["account"] as? NSDictionary else {
+            print("Parsed result error: \(parsedResult["error"])")
+            
+            guard parsedResult["error"] == nil else {
+                print("Invalid Credentials")
+                return
+            }
+            
+            guard let account = parsedResult["session"] as? NSDictionary else {
                 return
             }
             print("Account: \(account)")
             
-            self.appDelegate.sessionID = account["key"] as! String
+            let accountSessionID = account["id"] as! String
+        
+            print("Session ID: \(accountSessionID)")
             
+            print(self.appDelegate.sessionID)
             
-            
-           // print("Unique Key : \(uniqueKey)")
+            print(self.appDelegate.sessionID)
+           
             
             
             let nc = self.storyboard!.instantiateViewControllerWithIdentifier("rootNavigationController") as! UINavigationController
             self.presentViewController(nc, animated: true, completion: nil)
- 
-          //  let sessionid = parsedResult[session]
-           // print("sessionid = \(sessionid)")
             
         }
-          /// var nextVCController: UIViewController
-        /*   let nextVCController = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UITabBarController
-            
-            
-         //   nextVCController1 = self.storyboard?.instantiateInitialViewController("mapTabViewController") as! UITabBarController
-            
-          self.presentViewController(nextVCController, animated: true, completion: nil)
-            } */
-        
+ 
         task.resume()
-        
     
     }
     

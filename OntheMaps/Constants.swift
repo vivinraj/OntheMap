@@ -25,7 +25,7 @@ struct Constants {
     }
     struct JSONResponseKeys {
         static let RequestToken = "RequestToken"
-        static let session = "session"
+        static let SessionID = "SessionID"
     }
     
    /* struct JSONResponseValues {
