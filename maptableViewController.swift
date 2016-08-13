@@ -100,8 +100,6 @@ class maptableViewController: UITableViewController {
         if let URL = NSURL(string: url) {
             UIApplication.sharedApplication().openURL(URL)
         }
-       
-        
     }
 }
 
