@@ -11,30 +11,24 @@ import UIKit
 
 class maptableViewController: UITableViewController {
     
-    var studentDictionary: [String: AnyObject]?
+    var studentDictionary: [[String: AnyObject]]?
     
     
     
     override func viewWillAppear(animated: Bool) {
-       // prefersStatusBarHidden()
-        
-        //tableView.reloadData()
-        
-        
-        
+        getStudentLocation()
     }
     
-    func getStudentLocation(completionHandler: (studentDictionary: NSDictionary) -> ()) {
-        
-        
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    func getStudentLocation() {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
-        print("getStudentLocation: \(request)")
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        print("getStudentLocation: \(request)")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
-        print("getStudentLocation: \(request)")
+        //print("getStudentLocation: \(request)")
         let session = NSURLSession.sharedSession()
-        print("starting task")
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             print("getStudentLocation in task: \(error) \(response)")
             if error != nil { // Handle error...
@@ -48,66 +42,69 @@ class maptableViewController: UITableViewController {
             do {
                 parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                 print("Student location parsed result: \(parsedResult)")
+                self.studentDictionary = parsedResult["results"] as? [[String: AnyObject]]
+                dispatch_async(dispatch_get_main_queue(), { //to avoid
+                    self.tableView.reloadData()
+                })
+                
             }
             catch {
                 print(error)
                 return
             }
             
-            self.studentDictionary = parsedResult["results"] as? [String: AnyObject]
-           // completionHandler(studentDictionary: self.studentDictionary!)
             
-            print("STudent Dictonary: \(self.studentDictionary)")
+            //print("Student Dictionary: \(self.studentDictionary)")
+            
         }
         
         task.resume()
-       /* var index: Int
-        for index = 0; index < 500000; ++index {
-            print("Index: \(index), Task state: \(task.state)")
-        } */
-        
     }
-    
-    
-    
-    
+
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        getStudentLocation{
-            studentDictionary in
-            //studentDictionary.count
-            print("Count: \(studentDictionary.count)")
+        if self.studentDictionary == nil {
+            return 0
         }
-        return studentDictionary!.count
-        
-      //  getStudentLocation(studentDictionary)
-      //  return self.studentDictionary!.count
-        
+        else {
+            //print("Count: \(studentDictionary?.count)")
+            return studentDictionary!.count
+        }
     }
     
-  /*  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("maptableViewCell")
-        let location = studentDictionary[indexPath.row]
-        cell?.textLabel.text = location.firstName + location.lastName
-        cell?.imageView?.image =
+        let location = studentDictionary![indexPath.row]
         
-        return cell
-        
-
+        var fName = location["firstName"]
+        var lName = location["lastName"]
+        if  fName == nil {
+            fName = "Unknown"
+        }
+        if lName == nil {
+            lName = "Unknown"
+        }
+        cell?.textLabel!.text = String(fName!) + " " + String(lName!)
+        cell?.imageView?.image = UIImage(named: "pin")
+        return cell!
     }
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.dequeueReusableCellWithIdentifier("maptableViewCell")
-        let location = studentDictionary[indexPath.row]
+        let location = studentDictionary![indexPath.row]
+        let url = String(location["mediaURL"]!)
+        print("URl = \(url)")
+        if let URL = NSURL(string: url) {
+            UIApplication.sharedApplication().openURL(URL)
+        }
+       
         
     }
-    */
-    
-    
 }
+
 
 
 
