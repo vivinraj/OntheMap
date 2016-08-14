@@ -30,18 +30,18 @@ class maptableViewController: UITableViewController {
         //print("getStudentLocation: \(request)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            print("getStudentLocation in task: \(error) \(response)")
+            //print("getStudentLocation in task: \(error) \(response)")
             if error != nil { // Handle error...
-                print(" error in get student location: \(error)")
+                //print(" error in get student location: \(error)")
                 return
                 
             }
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
             
             let parsedResult: AnyObject
             do {
                 parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                print("Student location parsed result: \(parsedResult)")
+                //print("Student location parsed result: \(parsedResult)")
                 self.studentDictionary = parsedResult["results"] as? [[String: AnyObject]]
                 dispatch_async(dispatch_get_main_queue(), { //to avoid
                     self.tableView.reloadData()
@@ -49,7 +49,7 @@ class maptableViewController: UITableViewController {
                 
             }
             catch {
-                print(error)
+                //print(error)
                 return
             }
             
@@ -96,7 +96,7 @@ class maptableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("maptableViewCell")
         let location = studentDictionary![indexPath.row]
         let url = String(location["mediaURL"]!)
-        print("URl = \(url)")
+        //print("URl = \(url)")
         if let URL = NSURL(string: url) {
             UIApplication.sharedApplication().openURL(URL)
         }

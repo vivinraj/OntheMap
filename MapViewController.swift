@@ -62,12 +62,14 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             
             // Finally we place the annotation in an array of annotations.
             annotations.append(annotation)
-             self.mapView.addAnnotations(annotations)
+            self.mapView.addAnnotations(annotations)
+            print("Student Dictionar : \(studentDictionary)")
             }
         }
         
         else {
             self.studentDictionary = nil
+            print("Student Dictionar in else : \(studentDictionary)")
         }
         
         // When the array is complete, we add the annotations to the map.
@@ -117,9 +119,10 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             let parsedResult: AnyObject
             do {
                 parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                //print("Student location parsed result: \(parsedResult)")
+                print("Student location parsed result: \(parsedResult)")
                 self.studentDictionary = parsedResult["results"] as? [[String: AnyObject]]
-                //self.mapView.reloadInputViews()
+                print("Reloading data")
+                
                 
             }
             catch {
@@ -128,7 +131,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             }
             
             
-            //print("Student Dictionary: \(self.studentDictionary)")
+            print("Student Dictionary: \(self.studentDictionary)")
             
         }
         

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -143,6 +144,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXm-90-RbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55" y="190"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="p8q-hY-chv">
+            <objects>
+                <viewController id="beE-Yp-4xE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zMK-hq-pfI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q6A-Lb-FCm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FTl-L4-4oT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hNM-BD-1gh">
+                                <rect key="frame" x="0.0" y="38" width="600" height="562"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MP0-c0-eRR">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="187.5"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eY-z6-xoD">
+                                        <rect key="frame" x="0.0" y="187.5" width="600" height="187"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-gR-2U9">
+                                        <rect key="frame" x="0.0" y="374" width="600" height="187.5"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hNM-BD-1gh" firstAttribute="leading" secondItem="FTl-L4-4oT" secondAttribute="leadingMargin" constant="-20" id="6O5-gv-WgX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hNM-BD-1gh" secondAttribute="trailing" constant="-20" id="QWn-KF-O2d"/>
+                            <constraint firstItem="hNM-BD-1gh" firstAttribute="top" secondItem="zMK-hq-pfI" secondAttribute="bottom" constant="18" id="tu3-wy-XMZ"/>
+                            <constraint firstItem="Q6A-Lb-FCm" firstAttribute="top" secondItem="hNM-BD-1gh" secondAttribute="bottom" id="veo-iu-KFB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XtH-yk-K8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="429"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fnY-wG-Dhy">
