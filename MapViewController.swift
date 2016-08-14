@@ -19,62 +19,65 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     var studentDictionary: [[String: AnyObject]]?
     var annotations = [MKPointAnnotation]()
     
-    override func viewWillAppear(animated: Bool) {
-        //getStudentLocation()
+    func mapViewLoad() {
+        print("Map View Load")
+        if self.studentDictionary != nil {
+            let count = studentDictionary!.count - 1
+            print("Count: \(count)")
+            for index in 1...count {
+                print("Index: \(index)")
+                let dictionary = studentDictionary![index]
+                print("Dictionary: \(dictionary)")
+                if (dictionary["latitude"] != nil) {
+                    if (dictionary["longitude"] != nil) {
+        
+                        let lat = CLLocationDegrees(dictionary["latitude"] as! Double)
+                        let long = CLLocationDegrees(dictionary["longitude"] as! Double)
+                        print("Lat:\(lat)")
+                        print("Lon: \(long)")
+                        // The lat and long are used to create a CLLocationCoordinates2D instance.
+        
+                        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                        print("Coordinate: \(coordinate)")
+                        var first = dictionary["firstName"] as! String
+                        var last = dictionary["lastName"] as! String
+                        var mediaURL = dictionary["mediaURL"] as! String
+                        print("FirstName: \(first)")
+                        print("LastName: \(last)")
+                        print("URL: \(mediaURL)")
+                        if first == "" { first = "Unknown" }
+                        if last == "" {last = "Unknown" }
+                        if mediaURL == "" {mediaURL = "No link provided"}
+                        // Here we create the annotation and set its coordiate, title, and subtitle properties
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = coordinate
+                        annotation.title = "\(first) \(last)"
+                        annotation.subtitle = mediaURL
+                        print("Annotation: \(annotation)")
+                        // Finally we place the annotation in an array of annotations.
+                        annotations.append(annotation)
+                        print("Annotations: \(annotations)")
+                        // This is the line with the issue. If you comment this out, things will start working
+                        //self.mapView.addAnnotations(annotations)
+                        //print("Student Dictionar : \(studentDictionary)")
+                    }
+                }
+            }
+     //   self.mapView.removeAnnotations(annotations)
+     //   self.mapView.addAnnotations(annotations)
+        }
+    
+    else {
+    self.studentDictionary = nil
+    //print("Student Dictionar in else : \(studentDictionary)")
+        }
+    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocation()
-        //let locations = hardCodedLocationData()
-        
-        // We will create an MKPointAnnotation for each dictionary in "locations". The
-        // point annotations will be stored in this array, and then provided to the map view.
-        
-        
-        // The "locations" array is loaded with the sample data below. We are using the dictionaries
-        // to create map annotations. This would be more stylish if the dictionaries were being
-        // used to create custom structs. Perhaps StudentLocation structs.
-        if self.studentDictionary != nil {
-       
-            for dictionary in studentDictionary! {
-            
-            // Notice that the float values are being used to create CLLocationDegree values.
-            // This is a version of the Double type.
-                let lat = CLLocationDegrees(dictionary["latitude"] as! Double)
-                let long = CLLocationDegrees(dictionary["longitude"] as! Double)
-                print("Lat:\(lat)")
-                print("Lon: \(long)")
-            
-            // The lat and long are used to create a CLLocationCoordinates2D instance.
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                print("Coordinate: \(coordinate)")
-            
-            let first = dictionary["firstName"] as! String
-            let last = dictionary["lastName"] as! String
-            let mediaURL = dictionary["mediaURL"] as! String
-            
-            // Here we create the annotation and set its coordiate, title, and subtitle properties
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = "\(first) \(last)"
-            annotation.subtitle = mediaURL
-            
-            // Finally we place the annotation in an array of annotations.
-            annotations.append(annotation)
-            self.mapView.addAnnotations(annotations)
-            print("Student Dictionar : \(studentDictionary)")
-            }
-        }
-        
-        else {
-            self.studentDictionary = nil
-            print("Student Dictionar in else : \(studentDictionary)")
-        }
-        
-        // When the array is complete, we add the annotations to the map.
-       
-        
+        self.mapViewLoad()
     }
     
 
@@ -83,11 +86,9 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        
         let reuseId = "pin"
-        
+        print(" Reuse id is done")
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-        
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
@@ -96,8 +97,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         }
         else {
             pinView!.annotation = annotation
+            print("else in mapView func")
         }
-        
         return pinView
     }
 
@@ -123,20 +124,21 @@ class MapViewController : UIViewController, MKMapViewDelegate {
                 self.studentDictionary = parsedResult["results"] as? [[String: AnyObject]]
                 print("Reloading data")
                 
+                self.mapViewLoad()
                 
             }
             catch {
                 print(error)
                 return
             }
-            
-            
-            print("Student Dictionary: \(self.studentDictionary)")
-            
         }
-        
         task.resume()
     }
     
+    @IBAction func postLocation(sender: AnyObject) {
+        //var controller: ViewController
+        let controller = (self.storyboard?.instantiateViewControllerWithIdentifier("postLocationViewController"))! as UIViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 }
 

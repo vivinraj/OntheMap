@@ -16,6 +16,8 @@
 		3747F06D1D4E65F900502288 /* OntheMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3747F06C1D4E65F900502288 /* OntheMapsTests.swift */; };
 		3747F0781D4E65F900502288 /* OntheMapsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3747F0771D4E65F900502288 /* OntheMapsUITests.swift */; };
 		374FF3AA1D5C8509003D33B3 /* getStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FF3A91D5C8509003D33B3 /* getStudentLocation.swift */; };
+		3794D79A1D605F9C0068E232 /* postLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794D7991D605F9C0068E232 /* postLocationViewController.swift */; };
+		3794D79C1D6063D60068E232 /* shareLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794D79B1D6063D60068E232 /* shareLinkViewController.swift */; };
 		37A6F1711D4F56C800022DCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6F1701D4F56C800022DCA /* Constants.swift */; };
 		37A6F1731D4F6F2100022DCA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6F1721D4F6F2100022DCA /* MapViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		3747F0771D4E65F900502288 /* OntheMapsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OntheMapsUITests.swift; sourceTree = "<group>"; };
 		3747F0791D4E65F900502288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		374FF3A91D5C8509003D33B3 /* getStudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getStudentLocation.swift; sourceTree = "<group>"; };
+		3794D7991D605F9C0068E232 /* postLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postLocationViewController.swift; sourceTree = "<group>"; };
+		3794D79B1D6063D60068E232 /* shareLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shareLinkViewController.swift; sourceTree = "<group>"; };
 		37A6F1701D4F56C800022DCA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		37A6F1721D4F6F2100022DCA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +145,8 @@
 				37A6F1721D4F6F2100022DCA /* MapViewController.swift */,
 				372A1A381D571D3A000FB0E5 /* maptableViewController.swift */,
 				374FF3A91D5C8509003D33B3 /* getStudentLocation.swift */,
+				3794D7991D605F9C0068E232 /* postLocationViewController.swift */,
+				3794D79B1D6063D60068E232 /* shareLinkViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -276,8 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3794D79C1D6063D60068E232 /* shareLinkViewController.swift in Sources */,
 				372A1A391D571D3A000FB0E5 /* maptableViewController.swift in Sources */,
 				3747F05A1D4E65F900502288 /* LoginViewController.swift in Sources */,
+				3794D79A1D605F9C0068E232 /* postLocationViewController.swift in Sources */,
 				3747F0581D4E65F900502288 /* AppDelegate.swift in Sources */,
 				37A6F1711D4F56C800022DCA /* Constants.swift in Sources */,
 				37A6F1731D4F6F2100022DCA /* MapViewController.swift in Sources */,
