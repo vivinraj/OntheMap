@@ -64,7 +64,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
                 }
             }
      //   self.mapView.removeAnnotations(annotations)
-     //   self.mapView.addAnnotations(annotations)
+        
+        self.mapView.addAnnotations(annotations)
         }
     
     else {

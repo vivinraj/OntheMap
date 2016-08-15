@@ -111,6 +111,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" id="cOH-xS-dvi"/>
+                    <connections>
+                        <outlet property="mapView" destination="Uri-P4-x08" id="eli-eG-vQ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtR-tl-WiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,8 +166,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MP0-c0-eRR">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-eP-gb9">
-                                                <rect key="frame" x="0.0" y="32" width="600" height="124"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-eP-gb9">
+                                                <rect key="frame" x="0.0" y="69" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Where are you 
 studying 
@@ -179,7 +182,7 @@ today?</string>
                                         <rect key="frame" x="0.0" y="188" width="600" height="187"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter your location here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
+                                                <rect key="frame" x="0.0" y="69" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
