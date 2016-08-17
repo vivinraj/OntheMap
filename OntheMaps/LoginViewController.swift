@@ -117,7 +117,16 @@ class LoginViewController: UIViewController {
           //  print("Session ID: \(accountSessionID)")
             
             self.appDelegate.sessionID = account["id"] as! String
+            
             print("SessionID: \(self.appDelegate.sessionID)")
+            
+            guard let session = parsedResult["account"] as? NSDictionary else {
+                return
+            }
+            print("Parsed result for key: \(session)")
+            self.appDelegate.keyID = session["key"] as! String
+            self.appDelegate.userID = username
+            
             
             
             let nc = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UITabBarController

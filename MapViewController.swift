@@ -20,31 +20,21 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     var annotations = [MKPointAnnotation]()
     
     func mapViewLoad() {
-        print("Map View Load")
         if self.studentDictionary != nil {
             let count = studentDictionary!.count - 1
-            print("Count: \(count)")
             for index in 1...count {
-                print("Index: \(index)")
                 let dictionary = studentDictionary![index]
-                print("Dictionary: \(dictionary)")
                 if (dictionary["latitude"] != nil) {
                     if (dictionary["longitude"] != nil) {
         
                         let lat = CLLocationDegrees(dictionary["latitude"] as! Double)
                         let long = CLLocationDegrees(dictionary["longitude"] as! Double)
-                        print("Lat:\(lat)")
-                        print("Lon: \(long)")
                         // The lat and long are used to create a CLLocationCoordinates2D instance.
         
                         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                        print("Coordinate: \(coordinate)")
                         var first = dictionary["firstName"] as! String
                         var last = dictionary["lastName"] as! String
                         var mediaURL = dictionary["mediaURL"] as! String
-                        print("FirstName: \(first)")
-                        print("LastName: \(last)")
-                        print("URL: \(mediaURL)")
                         if first == "" { first = "Unknown" }
                         if last == "" {last = "Unknown" }
                         if mediaURL == "" {mediaURL = "No link provided"}
@@ -53,10 +43,10 @@ class MapViewController : UIViewController, MKMapViewDelegate {
                         annotation.coordinate = coordinate
                         annotation.title = "\(first) \(last)"
                         annotation.subtitle = mediaURL
-                        print("Annotation: \(annotation)")
+                        //print("Annotation: \(annotation)")
                         // Finally we place the annotation in an array of annotations.
                         annotations.append(annotation)
-                        print("Annotations: \(annotations)")
+                        //print("Annotations: \(annotations)")
                         // This is the line with the issue. If you comment this out, things will start working
                         //self.mapView.addAnnotations(annotations)
                         //print("Student Dictionar : \(studentDictionary)")
@@ -116,14 +106,14 @@ class MapViewController : UIViewController, MKMapViewDelegate {
                 return
                 
             }
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
             
             let parsedResult: AnyObject
             do {
                 parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                print("Student location parsed result: \(parsedResult)")
+                //print("Student location parsed result: \(parsedResult)")
                 self.studentDictionary = parsedResult["results"] as? [[String: AnyObject]]
-                print("Reloading data")
+                //print("Reloading data")
                 
                 self.mapViewLoad()
                 

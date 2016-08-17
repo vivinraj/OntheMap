@@ -163,45 +163,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hNM-BD-1gh">
                                 <rect key="frame" x="0.0" y="38" width="600" height="562"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MP0-c0-eRR">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-eP-gb9">
-                                                <rect key="frame" x="0.0" y="69" width="600" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">Where are you 
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-eP-gb9">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="187.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Where are you 
 studying 
 today?</string>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7eY-z6-xoD">
-                                        <rect key="frame" x="0.0" y="188" width="600" height="187"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter your location here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
-                                                <rect key="frame" x="0.0" y="69" width="600" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-gR-2U9">
-                                        <rect key="frame" x="0.0" y="375" width="600" height="188"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-JD-aYr">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
-                                                <state key="normal" title="Find on Map"/>
-                                                <connections>
-                                                    <action selector="findOnMapButton:" destination="beE-Yp-4xE" eventType="touchUpInside" id="wMa-xM-amb"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your location here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
+                                        <rect key="frame" x="0.0" y="187.5" width="600" height="187"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-JD-aYr">
+                                        <rect key="frame" x="0.0" y="374" width="600" height="187.5"/>
+                                        <state key="normal" title="Find on Map"/>
+                                        <connections>
+                                            <action selector="findOnMapButton:" destination="beE-Yp-4xE" eventType="touchUpInside" id="wMa-xM-amb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -224,7 +208,7 @@ today?</string>
         <!--Share Link View Controller-->
         <scene sceneID="luR-hg-BDB">
             <objects>
-                <viewController storyboardIdentifier="shareLinkViewController" id="u0Y-sT-ToA" customClass="shareLinkViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shareLinkViewController" id="u0Y-sT-ToA" customClass="shareLinkViewController" customModule="OntheMaps" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3bX-jD-Ill"/>
                         <viewControllerLayoutGuide type="bottom" id="Wxg-Ik-ryI"/>
@@ -233,42 +217,44 @@ today?</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-9Q-Mua">
-                                <rect key="frame" x="0.0" y="38" width="600" height="562"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MQ-U6-ZVL">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter your link here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Spx-IS-SI4">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="say-fq-TCy">
-                                        <rect key="frame" x="0.0" y="170" width="600" height="393"/>
-                                        <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8nr-nU-izV">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="393"/>
-                                            </mapView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="www.google.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="79r-Cb-iXY">
+                                <rect key="frame" x="0.0" y="44" width="600" height="151"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xis-0u-F5X">
+                                <rect key="frame" x="0.0" y="194" width="600" height="406"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GjW-QQ-QaK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items/>
+                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stc-WO-FaD">
+                                <rect key="frame" x="250" y="501" width="90" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="postButton:" destination="u0Y-sT-ToA" eventType="touchUpInside" id="zSr-YP-XrU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Wxg-Ik-ryI" firstAttribute="top" secondItem="xNb-9Q-Mua" secondAttribute="bottom" id="1ZR-MT-bie"/>
-                            <constraint firstItem="xNb-9Q-Mua" firstAttribute="top" secondItem="3bX-jD-Ill" secondAttribute="bottom" constant="18" id="Jav-Fi-dN6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xNb-9Q-Mua" secondAttribute="trailing" constant="-20" id="ZHX-ss-gbq"/>
-                            <constraint firstItem="xNb-9Q-Mua" firstAttribute="leading" secondItem="yo4-9p-SDt" secondAttribute="leadingMargin" constant="-20" id="n9X-4r-iHo"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="3bX-jD-Ill" secondAttribute="bottom" constant="174" id="3D5-WU-3k7"/>
+                            <constraint firstItem="stc-WO-FaD" firstAttribute="top" secondItem="Xis-0u-F5X" secondAttribute="bottom" constant="-99" id="5GE-Ud-gPg"/>
+                            <constraint firstItem="79r-Cb-iXY" firstAttribute="leading" secondItem="yo4-9p-SDt" secondAttribute="leading" id="93G-4s-qEX"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="centerX" secondItem="79r-Cb-iXY" secondAttribute="centerX" id="Iog-bN-PFj"/>
+                            <constraint firstItem="79r-Cb-iXY" firstAttribute="top" secondItem="3bX-jD-Ill" secondAttribute="bottom" constant="24" id="Sqq-A9-9ga"/>
+                            <constraint firstItem="stc-WO-FaD" firstAttribute="centerX" secondItem="Xis-0u-F5X" secondAttribute="centerX" id="iuP-Ve-Qfj"/>
+                            <constraint firstAttribute="trailing" secondItem="79r-Cb-iXY" secondAttribute="trailing" id="mlN-2Y-fcj"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="bottom" secondItem="Wxg-Ik-ryI" secondAttribute="top" id="r1V-i6-0D0"/>
+                            <constraint firstItem="79r-Cb-iXY" firstAttribute="leading" secondItem="Xis-0u-F5X" secondAttribute="leading" id="tRc-6V-iHs"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="79r-Cb-iXY" secondAttribute="bottom" constant="-1" id="x3r-u8-YPp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="postLocationMapView" destination="8nr-nU-izV" id="rJl-mE-Oil"/>
-                        <outlet property="urlText" destination="Spx-IS-SI4" id="I7d-KY-EJy"/>
+                        <outlet property="postMapView" destination="Xis-0u-F5X" id="YeA-pG-yCz"/>
+                        <outlet property="urlText" destination="79r-Cb-iXY" id="ytt-gU-wtF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqI-vg-Jp6" userLabel="First Responder" sceneMemberID="firstResponder"/>

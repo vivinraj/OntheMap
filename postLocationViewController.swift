@@ -16,8 +16,8 @@ class postLocationViewController: UIViewController {
     
     
     @IBAction func findOnMapButton(sender: AnyObject) {
-        //let controller = (self.storyboard?.instantiateViewControllerWithIdentifier("postLocationViewController"))! as UIViewController
-        let controller = shareLinkViewController()
+        let controller = (self.storyboard?.instantiateViewControllerWithIdentifier("shareLinkViewController"))! as! shareLinkViewController
+        //let controller= shareLinkViewController()
         controller.location = self.locationTextView.text
         self.presentViewController(controller, animated: true, completion: nil)
         
