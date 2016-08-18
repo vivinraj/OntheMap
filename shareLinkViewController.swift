@@ -28,6 +28,10 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
     var locationLongitude: Double? = nil
     var locationLatitude: Double? = nil
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     
     
     func getLonNLatfromString(location: String) {
@@ -150,5 +154,11 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
         }
     task.resume()
     } */
+    @IBAction func cancelButton(sender: AnyObject) {
+        let baseViewController = (storyboard?.instantiateViewControllerWithIdentifier("MapViewController"))! as UIViewController
+        self.presentViewController(baseViewController, animated: true, completion: nil)
+        
+        
+    }
     
 }

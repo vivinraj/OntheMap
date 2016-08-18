@@ -13,6 +13,23 @@ class postLocationViewController: UIViewController {
     
     @IBOutlet weak var locationTextView: UITextView!
     
+    override func viewDidLoad() {
+        //prefersStatusBarHidden().true
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    //locationTextView.backgroundColor = UIColor.blueColor()
+    
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        let baseViewController = (storyboard?.instantiateViewControllerWithIdentifier("MapViewController"))! as UIViewController
+        self.presentViewController(baseViewController, animated: true, completion: nil)
+    }
+    
+    
     
     
     @IBAction func findOnMapButton(sender: AnyObject) {

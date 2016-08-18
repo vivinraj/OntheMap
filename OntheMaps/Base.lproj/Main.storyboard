@@ -4,12 +4,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="vmb-Pl-5Ah">
             <objects>
-                <viewController id="NcS-ko-8CF" customClass="LoginViewController" customModule="OntheMaps" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="NcS-ko-8CF" customClass="LoginViewController" customModule="OntheMaps" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cA9-S4-GPT"/>
                         <viewControllerLayoutGuide type="bottom" id="ZOY-KN-avW"/>
@@ -98,11 +99,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="On The Map" id="QTJ-Hm-nMJ">
-                                        <barButtonItem key="leftBarButtonItem" image="pin" id="w1B-6V-0l6">
-                                            <connections>
-                                                <action selector="postLocation:" destination="sdi-U8-OQT" id="dWW-dz-CRx"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Logout" id="NJW-1v-CgY">
+                                                <connections>
+                                                    <action selector="logoutButton:" destination="sdi-U8-OQT" id="lsx-pa-JDY"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="pin" id="w1B-6V-0l6">
+                                                <connections>
+                                                    <action selector="postLocation:" destination="sdi-U8-OQT" id="dWW-dz-CRx"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="EFe-ky-vaW"/>
                                     </navigationItem>
                                 </items>
@@ -117,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtR-tl-WiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="-480"/>
+            <point key="canvasLocation" x="81" y="-477"/>
         </scene>
         <!--mapsTableView-->
         <scene sceneID="etA-yN-iKd">
@@ -164,9 +172,9 @@
                                 <rect key="frame" x="0.0" y="38" width="600" height="562"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-eP-gb9">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="187.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Where are you 
+                                        <string key="text">  Where are you 
 studying 
 today?</string>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -174,13 +182,14 @@ today?</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your location here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
-                                        <rect key="frame" x="0.0" y="187.5" width="600" height="187"/>
+                                        <rect key="frame" x="0.0" y="188" width="600" height="187"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-JD-aYr">
-                                        <rect key="frame" x="0.0" y="374" width="600" height="187.5"/>
+                                        <rect key="frame" x="0.0" y="375" width="600" height="188"/>
                                         <state key="normal" title="Find on Map"/>
                                         <connections>
                                             <action selector="findOnMapButton:" destination="beE-Yp-4xE" eventType="touchUpInside" id="wMa-xM-amb"/>
@@ -188,6 +197,16 @@ today?</string>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-2X-qOC">
+                                <rect key="frame" x="0.0" y="-6" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="TMt-Qb-qNP">
+                                        <connections>
+                                            <action selector="cancelButton:" destination="beE-Yp-4xE" id="ghv-p9-8Db"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -237,6 +256,16 @@ today?</string>
                                     <action selector="postButton:" destination="u0Y-sT-ToA" eventType="touchUpInside" id="zSr-YP-XrU"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B38-Ei-Oer">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="c1E-nK-3kE">
+                                        <connections>
+                                            <action selector="cancelButton:" destination="u0Y-sT-ToA" id="YUT-CY-ajr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
