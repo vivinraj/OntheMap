@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -19,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vivinraj@gmail.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4c-0b-Ija">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4c-0b-Ija">
                                 <rect key="frame" x="200" y="222" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -33,11 +32,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Udacity" translatesAutoresizingMaskIntoConstraints="NO" id="1fy-qZ-jdf">
-                                <rect key="frame" x="238" y="78" width="125" height="85"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Udacity" translatesAutoresizingMaskIntoConstraints="NO" id="1fy-qZ-jdf">
+                                <rect key="frame" x="173" y="-93" width="256" height="256"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-TP-G1Z">
-                                <rect key="frame" x="220" y="171" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-TP-G1Z">
+                                <rect key="frame" x="235" y="171" width="125" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,31 +91,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uri-P4-x08">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uri-P4-x08">
                                 <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-TP-5v2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xK6-L0-DvT">
+                                <rect key="frame" x="0.0" y="0.0" width="537" height="44"/>
                                 <items>
-                                    <navigationItem title="On The Map" id="QTJ-Hm-nMJ">
-                                        <leftBarButtonItems>
-                                            <barButtonItem title="Logout" id="NJW-1v-CgY">
-                                                <connections>
-                                                    <action selector="logoutButton:" destination="sdi-U8-OQT" id="lsx-pa-JDY"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem image="pin" id="w1B-6V-0l6">
-                                                <connections>
-                                                    <action selector="postLocation:" destination="sdi-U8-OQT" id="dWW-dz-CRx"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </leftBarButtonItems>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="EFe-ky-vaW"/>
-                                    </navigationItem>
+                                    <barButtonItem title="Logout" id="I3b-Td-gdf">
+                                        <connections>
+                                            <action selector="logoutButton:" destination="sdi-U8-OQT" id="iTs-3G-KA8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="60" style="plain" systemItem="fixedSpace" id="wgW-Qv-tSU"/>
+                                    <barButtonItem style="plain" id="CU8-RS-QPG">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="On The Maps" textAlignment="center" minimumFontSize="17" id="LMG-ZB-GFB">
+                                            <rect key="frame" x="144" y="7" width="139" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9w7-nu-d1l"/>
+                                    <barButtonItem image="pin" id="Xv4-Ec-zhm">
+                                        <connections>
+                                            <action selector="postLocation:" destination="sdi-U8-OQT" id="qrh-lJ-pda"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="ZgD-SE-kgc">
+                                        <connections>
+                                            <action selector="refreshButton:" destination="sdi-U8-OQT" id="Crj-GZ-9i3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xK6-L0-DvT" firstAttribute="leading" secondItem="g5J-qY-vCl" secondAttribute="leading" id="31K-wz-vcE"/>
+                            <constraint firstItem="xK6-L0-DvT" firstAttribute="bottom" secondItem="Uri-P4-x08" secondAttribute="top" id="CKq-Qg-6Xz"/>
+                            <constraint firstAttribute="trailing" secondItem="xK6-L0-DvT" secondAttribute="trailing" id="Kv5-Kt-Mrs"/>
+                            <constraint firstItem="Uri-P4-x08" firstAttribute="bottom" secondItem="yij-vb-Qmg" secondAttribute="top" id="c3E-P6-7qY"/>
+                            <constraint firstItem="xK6-L0-DvT" firstAttribute="top" secondItem="g5J-qY-vCl" secondAttribute="topMargin" id="q4Q-M4-yqp"/>
+                            <constraint firstItem="xK6-L0-DvT" firstAttribute="leading" secondItem="Uri-P4-x08" secondAttribute="leading" id="q6B-qb-eDF"/>
+                            <constraint firstItem="xK6-L0-DvT" firstAttribute="trailing" secondItem="Uri-P4-x08" secondAttribute="trailing" id="qcf-Yq-8tq"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" id="cOH-xS-dvi"/>
                     <connections>
@@ -125,22 +143,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtR-tl-WiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="-477"/>
+            <point key="canvasLocation" x="80" y="-476"/>
         </scene>
         <!--mapsTableView-->
         <scene sceneID="etA-yN-iKd">
             <objects>
                 <tableViewController id="5EW-5H-94a" userLabel="mapsTableView" customClass="maptableViewController" customModule="OntheMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ujX-9O-QR0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="33" sectionHeaderHeight="28" sectionFooterHeight="28" id="ujX-9O-QR0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="maptableViewCell" id="xrM-lB-bmv">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="maptableViewCell" rowHeight="33" id="xrM-lB-bmv">
+                                <rect key="frame" x="0.0" y="28" width="600" height="33"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xrM-lB-bmv" id="vMs-2g-jCr">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="32.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -154,7 +172,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXm-90-RbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="190"/>
+            <point key="canvasLocation" x="62" y="209"/>
         </scene>
         <!--Post Location View Controller-->
         <scene sceneID="p8q-hY-chv">
@@ -181,7 +199,7 @@ today?</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your location here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Kollam, Kerala" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
                                         <rect key="frame" x="0.0" y="188" width="600" height="187"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -236,8 +254,8 @@ today?</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="www.google.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="79r-Cb-iXY">
-                                <rect key="frame" x="0.0" y="44" width="600" height="151"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="www.google.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="79r-Cb-iXY">
+                                <rect key="frame" x="0.0" y="57" width="600" height="138"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -249,8 +267,8 @@ today?</string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items/>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stc-WO-FaD">
-                                <rect key="frame" x="250" y="501" width="90" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stc-WO-FaD">
+                                <rect key="frame" x="275.5" y="501" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="postButton:" destination="u0Y-sT-ToA" eventType="touchUpInside" id="zSr-YP-XrU"/>

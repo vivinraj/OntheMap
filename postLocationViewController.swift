@@ -15,6 +15,7 @@ class postLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         //prefersStatusBarHidden().true
+        locationTextView.backgroundColor = UIColor.blueColor()
     }
     
     override func prefersStatusBarHidden() -> Bool {

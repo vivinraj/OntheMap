@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var sessionID: String? = nil
     var userID: String? = nil
     var keyID: String? = nil
+    var fName: String? = nil
+    var lName: String? = nil
     
     
   //  var config = Config()

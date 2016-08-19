@@ -50,8 +50,8 @@ class LoginViewController: UIViewController {
             
         }  */
         
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: Constants.udacityBaseURL + "/session")!)
+        //let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -116,7 +116,7 @@ class LoginViewController: UIViewController {
         
           //  print("Session ID: \(accountSessionID)")
             
-            self.appDelegate.sessionID = account["id"] as! String
+            self.appDelegate.sessionID = account["id"] as? String
             
             print("SessionID: \(self.appDelegate.sessionID)")
             
@@ -124,19 +124,26 @@ class LoginViewController: UIViewController {
                 return
             }
             print("Parsed result for key: \(session)")
-            self.appDelegate.keyID = session["key"] as! String
+            self.appDelegate.keyID = session["key"] as? String
             self.appDelegate.userID = username
             
             
             
-            let nc = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UITabBarController
-            self.presentViewController(nc, animated: true, completion: nil)
+            dispatch_async(dispatch_get_main_queue(), {
+                let nc = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UITabBarController
+                self.presentViewController(nc, animated: true, completion: nil)
+                });
+            
+            
             
         }
  
         task.resume()
     
     }
+    
+    
+    
     
     
     

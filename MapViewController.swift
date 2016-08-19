@@ -13,7 +13,7 @@ import MapKit
 
 class MapViewController : UIViewController, MKMapViewDelegate {
     
-    
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var mapView: MKMapView!
     
     var studentDictionary: [[String: AnyObject]]?
@@ -68,6 +68,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocation()
+        getUserData()
         self.mapViewLoad()
     }
     
@@ -126,6 +127,40 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         task.resume()
     }
     
+    func getUserData() {
+        print("Key ID : \(appDelegate.keyID)")
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/users/\(appDelegate.keyID!)")!)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            if error != nil {
+                //Display error.localized blablabla
+                print(error!.localizedDescription)
+                return
+            } else {
+                guard let data = data else {
+                    return
+                }
+                
+                let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
+                let parsedResult = try! NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments) as! NSDictionary
+                
+                print("Parsed Result in getUserData: \(parsedResult)")
+                guard let user = parsedResult["user"] as? NSDictionary else {
+                    return
+                }
+                
+                self.appDelegate.fName = user["first_name"] as! String
+                self.appDelegate.lName = user["last_name"] as! String
+                
+                
+                
+            }
+        }
+        task.resume()
+    }
+    
+
+    
     @IBAction func postLocation(sender: AnyObject) {
         //var controller: ViewController
         let controller = (self.storyboard?.instantiateViewControllerWithIdentifier("postLocationViewController"))! as UIViewController
@@ -176,6 +211,9 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         
     }
     
+    @IBAction func refreshButton(sender: AnyObject) {
+        getStudentLocation()
+    }
 }
 
 

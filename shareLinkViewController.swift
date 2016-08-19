@@ -25,8 +25,10 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
     var key: String?
     var sessionID: String?
     
+    
     var locationLongitude: Double? = nil
     var locationLatitude: Double? = nil
+    var URL: String? = nil
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -80,9 +82,12 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         print("View loaded")
         username = self.appDelegate.userID
-        key = self.appDelegate.keyID
+        print("Key: \(self.appDelegate.keyID!)")
+        key = self.appDelegate.keyID!
+        //Key = String(key)
         sessionID = self.appDelegate.sessionID
         getLonNLatfromString(location!)
+        URL = urlText.text!
         
         //self.postStudentLocation()
     }
@@ -97,10 +102,33 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        print("Location: \(location)")
+        print("Location: \(location!)")
+        print("Latitude: \(locationLatitude!)")
+        print("Longitude: \(locationLongitude!)")
+        print("Media Url : \(urlText.text)")
         
-        //request.HTTPBody = "{\"uniqueKey\": \"\(key)\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"\(location)\", \"mediaURL\": \"\(urlText.text)\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
-        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Bangalore\", \"mediaURL\": \"www.google.com\",\"locationLatitude\": \(locationLatitude), \"longitude\": \(locationLongitude)}".dataUsingEncoding(NSUTF8StringEncoding)
+        print("URL : \(URL)")
+        print("Key: \(key)")
+        
+        print("Firstname: \(appDelegate.fName!)")
+        print("Last Name: \(appDelegate.lName!)")
+        
+        
+        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude!)}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"\(location!)\", \"mediaURL\": \"https://udacity.com\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude!)}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        request.HTTPBody = "{\"uniqueKey\": \(key), \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"\(location!)\", \"mediaURL\": \"\(URL)\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude!)}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        request.HTTPBody = "{\"uniqueKey\": \(appDelegate.keyID!), \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"\(location!)\", \"mediaURL\": \"\(URL)\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude!)}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        
+        request.HTTPBody = "{\"uniqueKey\": \"\(key!)\", \"firstName\": \"\(appDelegate.fName!)\", \"lastName\": \"\(appDelegate.lName!)\",\"mapString\": \"\(location!)\", \"mediaURL\": \"\(URL)\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude!)}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        //request.HTTPBody = "{\"uniqueKey\": \"\(key)\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"\(location!)\", \"mediaURL\": \"\(urlText.text!)\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude)}".dataUsingEncoding(NSUTF8StringEncoding)
+        //request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Bangalore\", \"mediaURL\": \"www.google.com\",\"locationLatitude\": \(locationLatitude), \"longitude\": \(locationLongitude)}".dataUsingEncoding(NSUTF8StringEncoding)
         
         let session = NSURLSession.sharedSession()
         print("Request: \(request.HTTPBody)")
@@ -129,13 +157,16 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
         postStudentLocation()
     }
     
-   /*func postExistingStudentLocation() {
+   func postExistingStudentLocation() {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.HTTPMethod = "POST"
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".dataUsingEncoding(NSUTF8StringEncoding)
+    
+       request.HTTPBody = "{\"uniqueKey\": \"\(key!)\", \"firstName\": \"\(appDelegate.fName!)\", \"lastName\": \"\(appDelegate.lName!)\",\"mapString\": \"\(location!)\", \"mediaURL\": \"\(URL)\",\"latitude\": \(locationLatitude!), \"longitude\": \(locationLongitude!)}".dataUsingEncoding(NSUTF8StringEncoding)
+    
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
@@ -153,7 +184,8 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
             }
         }
     task.resume()
-    } */
+    }
+    
     @IBAction func cancelButton(sender: AnyObject) {
         let baseViewController = (storyboard?.instantiateViewControllerWithIdentifier("MapViewController"))! as UIViewController
         self.presentViewController(baseViewController, animated: true, completion: nil)
