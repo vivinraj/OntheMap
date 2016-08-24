@@ -9,16 +9,22 @@
 import Foundation
 import UIKit
 
-class postLocationViewController: UIViewController {
+class postLocationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var locationTextView: UITextView!
     
     override func viewDidLoad() {
         //prefersStatusBarHidden().true
         locationTextView.backgroundColor = UIColor.blueColor()
+        
     }
     
     override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     

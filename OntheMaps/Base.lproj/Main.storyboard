@@ -21,16 +21,16 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4c-0b-Ija">
                                 <rect key="frame" x="200" y="222" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cestlav13" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBB-VD-gZi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBB-VD-gZi">
                                 <rect key="frame" x="200" y="260" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="GoC-k7-TcB"/>
                                     <constraint firstAttribute="height" constant="30" id="YhG-3f-mEV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Udacity" translatesAutoresizingMaskIntoConstraints="NO" id="1fy-qZ-jdf">
                                 <rect key="frame" x="173" y="-93" width="256" height="256"/>
@@ -94,8 +94,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uri-P4-x08">
                                 <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xK6-L0-DvT">
-                                <rect key="frame" x="0.0" y="0.0" width="537" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xK6-L0-DvT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <barButtonItem title="Logout" id="I3b-Td-gdf">
                                         <connections>
@@ -112,7 +112,7 @@
                                         </textField>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9w7-nu-d1l"/>
-                                    <barButtonItem image="pin" id="Xv4-Ec-zhm">
+                                    <barButtonItem image="pin" width="50" id="Xv4-Ec-zhm">
                                         <connections>
                                             <action selector="postLocation:" destination="sdi-U8-OQT" id="qrh-lJ-pda"/>
                                         </connections>
@@ -202,7 +202,7 @@ today?</string>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Kollam, Kerala" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-jc-SwV">
                                         <rect key="frame" x="0.0" y="188" width="600" height="187"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -254,27 +254,21 @@ today?</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="www.google.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="79r-Cb-iXY">
-                                <rect key="frame" x="0.0" y="57" width="600" height="138"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xis-0u-F5X">
-                                <rect key="frame" x="0.0" y="194" width="600" height="406"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xis-0u-F5X">
+                                <rect key="frame" x="0.0" y="176" width="600" height="424"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GjW-QQ-QaK">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GjW-QQ-QaK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stc-WO-FaD">
-                                <rect key="frame" x="275.5" y="501" width="49" height="30"/>
+                                <rect key="frame" x="275" y="501" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="postButton:" destination="u0Y-sT-ToA" eventType="touchUpInside" id="zSr-YP-XrU"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B38-Ei-Oer">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B38-Ei-Oer">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="cancel" id="c1E-nK-3kE">
@@ -284,24 +278,44 @@ today?</string>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9W8-2y-5Gc">
+                                <rect key="frame" x="0.0" y="44" width="600" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your URL here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufe-ko-rnw">
+                                <rect key="frame" x="0.0" y="95" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="3bX-jD-Ill" secondAttribute="bottom" constant="174" id="3D5-WU-3k7"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="3bX-jD-Ill" secondAttribute="bottom" constant="92" id="3D5-WU-3k7"/>
                             <constraint firstItem="stc-WO-FaD" firstAttribute="top" secondItem="Xis-0u-F5X" secondAttribute="bottom" constant="-99" id="5GE-Ud-gPg"/>
-                            <constraint firstItem="79r-Cb-iXY" firstAttribute="leading" secondItem="yo4-9p-SDt" secondAttribute="leading" id="93G-4s-qEX"/>
-                            <constraint firstItem="Xis-0u-F5X" firstAttribute="centerX" secondItem="79r-Cb-iXY" secondAttribute="centerX" id="Iog-bN-PFj"/>
-                            <constraint firstItem="79r-Cb-iXY" firstAttribute="top" secondItem="3bX-jD-Ill" secondAttribute="bottom" constant="24" id="Sqq-A9-9ga"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="9W8-2y-5Gc" secondAttribute="bottom" constant="8" id="9Hh-Aw-HnN"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="leading" secondItem="GjW-QQ-QaK" secondAttribute="leading" id="CsW-Rb-D0C"/>
+                            <constraint firstAttribute="trailing" secondItem="Xis-0u-F5X" secondAttribute="trailing" id="EYm-GB-49r"/>
+                            <constraint firstItem="B38-Ei-Oer" firstAttribute="bottom" secondItem="9W8-2y-5Gc" secondAttribute="top" id="GPi-QP-tMb"/>
+                            <constraint firstItem="B38-Ei-Oer" firstAttribute="top" secondItem="GjW-QQ-QaK" secondAttribute="top" id="Gf4-eH-qab"/>
+                            <constraint firstItem="ufe-ko-rnw" firstAttribute="top" secondItem="9W8-2y-5Gc" secondAttribute="bottom" constant="-9" id="HKK-Hm-bgk"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="leading" secondItem="B38-Ei-Oer" secondAttribute="leading" id="KMP-hu-5V2"/>
+                            <constraint firstItem="ufe-ko-rnw" firstAttribute="centerX" secondItem="9W8-2y-5Gc" secondAttribute="centerX" id="RFf-d3-9Hh"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="trailing" secondItem="9W8-2y-5Gc" secondAttribute="trailing" id="Thh-XA-lyX"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="leading" secondItem="9W8-2y-5Gc" secondAttribute="leading" id="UKr-Sg-Erb"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="trailing" secondItem="B38-Ei-Oer" secondAttribute="trailing" id="XVZ-cH-nY6"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="9W8-2y-5Gc" secondAttribute="bottom" constant="8" symbolic="YES" id="cY8-oP-j4C"/>
                             <constraint firstItem="stc-WO-FaD" firstAttribute="centerX" secondItem="Xis-0u-F5X" secondAttribute="centerX" id="iuP-Ve-Qfj"/>
-                            <constraint firstAttribute="trailing" secondItem="79r-Cb-iXY" secondAttribute="trailing" id="mlN-2Y-fcj"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="leading" secondItem="yo4-9p-SDt" secondAttribute="leading" id="ouP-8n-Vbl"/>
+                            <constraint firstItem="B38-Ei-Oer" firstAttribute="top" secondItem="yo4-9p-SDt" secondAttribute="top" id="qn2-8P-zk7"/>
                             <constraint firstItem="Xis-0u-F5X" firstAttribute="bottom" secondItem="Wxg-Ik-ryI" secondAttribute="top" id="r1V-i6-0D0"/>
-                            <constraint firstItem="79r-Cb-iXY" firstAttribute="leading" secondItem="Xis-0u-F5X" secondAttribute="leading" id="tRc-6V-iHs"/>
-                            <constraint firstItem="Xis-0u-F5X" firstAttribute="top" secondItem="79r-Cb-iXY" secondAttribute="bottom" constant="-1" id="x3r-u8-YPp"/>
+                            <constraint firstItem="Xis-0u-F5X" firstAttribute="trailing" secondItem="GjW-QQ-QaK" secondAttribute="trailing" id="tMX-lP-n43"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="postMapView" destination="Xis-0u-F5X" id="YeA-pG-yCz"/>
-                        <outlet property="urlText" destination="79r-Cb-iXY" id="ytt-gU-wtF"/>
+                        <outlet property="urlColumn" destination="ufe-ko-rnw" id="qoD-c0-Lpn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqI-vg-Jp6" userLabel="First Responder" sceneMemberID="firstResponder"/>

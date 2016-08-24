@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var keyboardOnScreen = false
@@ -25,12 +25,19 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Username.delegate = self
+        Password.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     
@@ -63,17 +70,49 @@ class LoginViewController: UIViewController {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
-        /*   func displayError(error: String){
+            /*func displayError(error: String){
                 print(error)
                 performUIUpdatesOnMain {
                     self.setUIEnabled(true)
                 }
-            } */
+            }*/
             
             guard(error == nil) else {
                 print(error)
                 return
             }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+                //displayError("Could not get statusCode.")
+                return
+            }
+            
+            if !(statusCode >= 200 && statusCode <= 299){
+                //displayError("Bad statusCode.")
+                
+                var message = ""
+                
+                if (statusCode >= 100 && statusCode <= 199) {
+                    
+                    message = "The processing of the inquiry is still ongoing"
+                }
+                
+                if (statusCode >= 300 && statusCode <= 399) {
+                    
+                    message = "You have been redirected. Try to login again."
+                }
+                
+                if (statusCode >= 400 && statusCode <= 499) {
+                    
+                    message = "Bad credentials. Try again."
+                }
+                
+                //self.showSimpleAlert("Could not connect", message: message)
+                //self.UIAlertView(title: "Error", message: message, delegate: <#T##UIAlertViewDelegate?#>, cancelButtonTitle: "Dismiss")
+                //self.showSimpleAlert(self, title: "Could not connect", message: message)
+            }
+
+            
             guard let data = data else {
                 print("No data")
                 return

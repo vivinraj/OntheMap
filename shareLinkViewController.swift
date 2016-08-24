@@ -17,8 +17,9 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
     
     var location: String?
     
-    @IBOutlet weak var urlText: UITextView!
+    //@IBOutlet weak var urlText: UITextView!
     @IBOutlet weak var postMapView: MKMapView!
+    @IBOutlet weak var urlColumn: UITextField!
     
    // let username = self.appDelegate
     var username: String?
@@ -87,7 +88,7 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
         //Key = String(key)
         sessionID = self.appDelegate.sessionID
         getLonNLatfromString(location!)
-        URL = urlText.text!
+        //URL = urlText.text!
         
         //self.postStudentLocation()
     }
@@ -105,7 +106,7 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
         print("Location: \(location!)")
         print("Latitude: \(locationLatitude!)")
         print("Longitude: \(locationLongitude!)")
-        print("Media Url : \(urlText.text)")
+        print("Media Url : \(urlColumn.text)")
         
         print("URL : \(URL)")
         print("Key: \(key)")
@@ -154,8 +155,17 @@ class shareLinkViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func postButton(sender: AnyObject) {
+        print("url : \(urlColumn.text)")
+        
+        if urlColumn.text == nil {
+            print("url is nil")
+        }
+        else {
+        URL = urlColumn.text
         postStudentLocation()
+        }
     }
+        
     
    func postExistingStudentLocation() {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
