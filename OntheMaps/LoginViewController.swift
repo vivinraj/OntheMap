@@ -35,11 +35,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIAlertViewDel
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 
+    func setUIEnabled() {
+        print("UI elements needed")
+    }
+    /*func displayError(error: String){
+        print(error)
+        performUIUpdatesOnMain(
+            //print("UI elements need to be enabled")
+            self.setUIEnabled()
+        )
+    }*/
     
     func loginPressed() {
         let username: String? = Username.text
@@ -47,63 +57,53 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIAlertViewDel
         
         let password = Password.text
         
-        print("Username: \(username)")
-        print("Password: \(password)")
+        print("Username: \(username!)")
+        print("Password: \(password!)")
         
         
         
-     /*   if (username = nil ) {
+     /*   if (username == nil ) {
             print("username is invalid")
             
         }  */
         
         let request = NSMutableURLRequest(URL: NSURL(string: Constants.udacityBaseURL + "/session")!)
-        //let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-       // request.HTTPBody = "{\"udacity\": {\"username\": \"username\", \"password\": \"********\"}}".dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPBody = "{\"udacity\": {\"username\": \"\(username!)\", \"password\": \"\(password!)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
-        
         print("Request: \(request)")
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
-            /*func displayError(error: String){
-                print(error)
-                performUIUpdatesOnMain {
-                    self.setUIEnabled(true)
-                }
-            }*/
-            
+            print("At beginning of task: error: \(error), response: \(response)")
             guard(error == nil) else {
-                print(error)
+                print("Inside error: \(error)")
                 return
             }
             
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+            let statusCode = (response as? NSHTTPURLResponse)?.statusCode
+            /*guard(statusCode == nil) else {
                 //displayError("Could not get statusCode.")
                 return
-            }
-            
-            if !(statusCode >= 200 && statusCode <= 299){
-                //displayError("Bad statusCode.")
+            }*/
+                print("Inside error2 status code: \(statusCode)")
+
+                if !(statusCode >= 200 && statusCode <= 299){
+                    //displayError("Bad statusCode.")
                 
                 var message = ""
                 
                 if (statusCode >= 100 && statusCode <= 199) {
-                    
                     message = "The processing of the inquiry is still ongoing"
                 }
                 
                 if (statusCode >= 300 && statusCode <= 399) {
-                    
                     message = "You have been redirected. Try to login again."
                 }
                 
                 if (statusCode >= 400 && statusCode <= 499) {
-                    
                     message = "Bad credentials. Try again."
                 }
                 
@@ -111,7 +111,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIAlertViewDel
                 //self.UIAlertView(title: "Error", message: message, delegate: <#T##UIAlertViewDelegate?#>, cancelButtonTitle: "Dismiss")
                 //self.showSimpleAlert(self, title: "Could not connect", message: message)
             }
-
             
             guard let data = data else {
                 print("No data")

@@ -21,6 +21,7 @@
 		3794D7AC1D65F3630068E232 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794D7AB1D65F3630068E232 /* Constants.swift */; };
 		3794D7AE1D662FEB0068E232 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794D7AD1D662FEB0068E232 /* request.swift */; };
 		37A6F1731D4F6F2100022DCA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6F1721D4F6F2100022DCA /* MapViewController.swift */; };
+		FE76DD3D1D6D752C00CD915B /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE76DD3C1D6D752C00CD915B /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		3794D7AB1D65F3630068E232 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3794D7AD1D662FEB0068E232 /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
 		37A6F1721D4F6F2100022DCA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FE76DD3C1D6D752C00CD915B /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		37A6F16F1D4F568500022DCA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FE76DD3C1D6D752C00CD915B /* GCDBlackBox.swift */,
 				3747F0591D4E65F900502288 /* LoginViewController.swift */,
 				37A6F1721D4F6F2100022DCA /* MapViewController.swift */,
 				372A1A381D571D3A000FB0E5 /* maptableViewController.swift */,
@@ -289,6 +292,7 @@
 				372A1A391D571D3A000FB0E5 /* maptableViewController.swift in Sources */,
 				3794D7AE1D662FEB0068E232 /* request.swift in Sources */,
 				3747F05A1D4E65F900502288 /* LoginViewController.swift in Sources */,
+				FE76DD3D1D6D752C00CD915B /* GCDBlackBox.swift in Sources */,
 				3794D79A1D605F9C0068E232 /* postLocationViewController.swift in Sources */,
 				3747F0581D4E65F900502288 /* AppDelegate.swift in Sources */,
 				37A6F1731D4F6F2100022DCA /* MapViewController.swift in Sources */,
