@@ -68,7 +68,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocation()
-        getUserData()
+        //getUserData()
         self.mapViewLoad()
     }
     
@@ -101,7 +101,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         //print("getStudentLocation: \(request)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            print("getStudentLocation in task: \(error) \(response)")
+            //print("getStudentLocation in task: \(error) \(response)")
             if error != nil { // Handle error...
                 print(" error in get student location: \(error)")
                 return
